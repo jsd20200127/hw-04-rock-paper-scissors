@@ -1,102 +1,96 @@
-$(document).ready(function (){
-
-//set userscore to 0
-//set botscore to 0
-
-//put these 3 choices in array (random number generator)
+$(document).ready(function () {
   let userScore = 0
   let botScore = 0
 
-  function youWin (){
-    $("#humanScore").text(()=>{
+  // if (userScore>10 || botScore>10) {
+  //   disableScores()
+  //   `<p>Finito! Renew Page to Play Again.</p>`
+  // }
+
+  // function enableScores(){
+  //   $("#humanScore").attr("disabled", false)
+  //   $("#computerScore").attr("disabled", false)
+  // }
+
+  // function disableScores(){
+  //   printScore(), false
+  // }
+
+  const choices = ["rock", "paper", "scissors"]
+
+  $("#rock").click(() => {
+    compare("rock", generate())
+  })
+  $("#paper").click(() => {
+    const bot = generate();
+    compare("paper", bot)
+  })
+  $("#scissors").click(() => {
+    const user = "scissors"
+    const bot = generate()
+    compare(user, bot)
+  })
+
+  function compare(userChoice, botChoice) {
+    if (userChoice === botChoice) {
+      let userResult = 'tie'
+      printMessage(userChoice, botChoice, userResult)
+    } else if (userChoice === 'rock' && botChoice === 'scissors') {
+      let userResult = 'win'
       userScore += 1
-    })
-    console.log("You win. Not based on merit though.");
-  }
-
-  function botWins (){
-    return  $("#computerScore").text(()=>{
+      printScore()
+      printMessage(userChoice, botChoice, userResult)
+    } else if (userChoice === 'rock' && botChoice === 'paper') {
+      let userResult = 'lose'
       botScore += 1
-    })
-    console.log("Bot wins. It's random, don't worry.");
-  }
-
-  if (userScore === botScore) {
-    console.log("It's a tie!")
-  } else {
-    switch(userScore) {
-      case "rock":
-        if (botScore==="paper"){
-          //
-          botWins()
-        } else {
-          youWin()
-        }
-        //
-      break;
-      case "paper":
-        if (botScore==="scissors"){
-          botWins()
-        }else{
-          youWin()
-        }
-      break;
-      case "scissors":
-        if (botScore==="rock"){
-          botWins()
-        } else {
-          youWin()
-        }
-      break;
+      printScore()
+      printMessage(userChoice, botChoice, userResult)
+    } else if (userChoice === 'paper' && botChoice === 'rock') {
+      const userResult = 'win'
+      userScore += 1
+      printScore()
+      printMessage(userChoice, botChoice, userResult)
+    } else if (userChoice === 'paper' && botChoice === 'scissors') {
+      const userResult = 'lose'
+      botScore += 1
+      printScore()
+      printMessage(userChoice, botChoice, userResult)
+    } else if (userChoice === 'scissors' && botChoice === 'paper') {
+      const userResult = 'win'
+      userScore += 1
+      printScore()
+      printMessage(userChoice, botChoice, userResult)
+    } else if (userChoice === 'scissors' && botChoice === 'rock') {
+      botScore += 1
+      printScore()
+      printMessage(userChoice, botChoice, "lose")
+    } else {
+      console.log('something wrong happened!')
     }
-
-$("#rock").click(()=>{
-  if (userScore=== "scissors"){
-    botWins()
-  } else {
-    youWin()
-  }
-})
-
-$("paper").click(()=>{
-  youWin(){
-    return userScore +=1
-  } else {
-    return botScore +=1
-  }
-})
-
-$("#scissors").click(()=>{
-  if youWin{
-    return userScore +=1
-  } else {
-    return botScore +=1
-  }
-})
-
-  // $("#humanScore").text(()=>{
-  //   +=1
-  // // })
-  //
-  // $("computerScore").text()
-
-    const headerText = $(".header").text()
-    console.log(headerText)
-
-    $(.header).text('Rock, Paper, or Scissors?')
-
-    .done((response)=>{
-      //execution successful
-      console.log(response);
-
-      //pass array of gifs as a parameter from API to displayResults() function
-      //displayResults(response)
-    })
-    .fail(()=>{
-      //execution failed
-      alert('error occured')
-    })
   }
 
+  function generate() {
+    return choices[Math.floor(Math.random() * 3)]
+  }
 
+  function printScore() {
+   $("#humanScore").text(userScore)
+   $("#computerScore").text(botScore)
+  }
+
+  function printMessage(user, bot, result) {
+    let message = `
+    <p>
+    You picked ${user}. Computer picked ${bot}.
+    </p>
+    `
+    if (result === 'win') {
+      message = message + `<p>You win!</p>`
+    } else if (result === 'lose') {
+      message = message + `<p>You lose!</p>`
+    } else {
+      message = message + `<p>You tie!</p>`
+    }
+    $("#status").html(message)
+  }
 })
