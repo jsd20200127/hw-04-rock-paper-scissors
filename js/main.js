@@ -1,22 +1,8 @@
 $(document).ready(function () {
   let userScore = 0
   let botScore = 0
-
-  // if (userScore>10 || botScore>10) {
-  //   disableScores()
-  //   `<p>Finito! Renew Page to Play Again.</p>`
-  // }
-
-  // function enableScores(){
-  //   $("#humanScore").attr("disabled", false)
-  //   $("#computerScore").attr("disabled", false)
-  // }
-
-  // function disableScores(){
-  //   printScore(), false
-  // }
-
   const choices = ["rock", "paper", "scissors"]
+
 
   $("#rock").click(() => {
     compare("rock", generate())
