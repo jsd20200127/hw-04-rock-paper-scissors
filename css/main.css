@@ -3,7 +3,7 @@ body {
   font-size: 20px;
   text-align: center;
   background: black;
-  color: lime;
+  color: #00CCFF;
   margin: 3em;
 }
 
@@ -12,7 +12,7 @@ strong {
 }
 
 button {
-  background: lime;
+  background: #00CCFF;
   color: black;
   border: none;
   padding: 10px 15px;
@@ -21,7 +21,7 @@ button {
   font-weight: bold;
 }
 button:active {
-  background: green;
+  background: blue;
 }
 
 .container {
@@ -32,10 +32,10 @@ button:active {
 .scoreboard {
   width: 14em;
   margin: auto;
-  border: 1px solid lime;
+  border: 1px solid #00CCFF;
 }
 .scoreboard h2 {
-  border-bottom: 1px solid lime;
+  border-bottom: 1px solid #00CCFF;
   margin: 0;
   padding: 10px;
 }
@@ -54,4 +54,17 @@ button:active {
 
 #status {
   margin-top: 20px;
+}
+
+.bold {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+#roundscore {
+    display: inline-block;
+}
+
+#handscore {
+    display: inline-block;
 }
