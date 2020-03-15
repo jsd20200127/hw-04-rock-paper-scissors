@@ -51,42 +51,44 @@ $(function () {
 
     if (player === 'rock') {
       if (bot === 'scissors') {
-        console.log("Player wins")
+        updateSummary("You win.")
         playerScore += 1
     } else if (bot === "paper") {
-        console.log("Bot wins")
+        updateSummary("You lose.")
         botScore += 1
     } else {
-        console.log("It's a tie")
+        updateSummary("You tied.")
     }
 
   }
 
     if (player === 'paper') {
       if (bot === 'rock') {
-        console.log("Player wins")
+        updateSummary("You win.")
         playerScore += 1
+
     } else if (bot === "scissors") {
-        console.log("Bot wins")
+        updateSummary("You lose.")
         botScore += 1
     } else {
-        console.log("It's a tie")
+        updateSummary("You tied.")
     }
   }
 
     if (player === 'scissors') {
       if (bot === 'paper') {
-        console.log("Player wins")
+        updateSummary("You win.")
         playerScore += 1
     } else if (bot === 'rock') {
-        console.log("Bot wins")
+        cupdateSummary("You lose.")
         botScore += 1
     } else {
-        console.log("It's a tie")
+        updateSummary("You tied.")
     }
   }
 
     updateScore()
+    updateStatus()
 
   }
 
@@ -94,5 +96,15 @@ $(function () {
     $('#humanScore').text(playerScore)
     $('#computerScore').text(botScore)
   }
+
+  function updateStatus(){
+    $('#status').html(`You played ${playerMove.bold()}. The bot played ${botMove.bold()}.`)
+  }
+
+  function updateSummary(result){
+    $('#summary').text(result)
+  }
+
+
 
 })
