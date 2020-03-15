@@ -1,7 +1,9 @@
 $(function () {
 
-  let playerAChoice
-  let botChoice
+  let playerMove
+  let botMove
+  let playerScore = 0
+  let botScore = 0
 
   function generateBotMove (){
     const number = Math.floor(Math.random() * 3 + 1)
@@ -16,57 +18,81 @@ $(function () {
     } else move = "scissors"
 
     return move
-
   }
 
-  console.log(generateBotMove())
 
   $("#rock").click((event) => {
     console.log('selecting rock')
+    playerMove = 'rock'
+    botMove = generateBotMove()
+    console.log(botMove)
+    console.log(playerMove)
+    determineWinner(playerMove, botMove)
   })
 
   $("#paper").click((event) => {
     console.log('selecting paper')
+    playerMove = 'paper'
+    botMove = generateBotMove()
+    console.log(botMove)
+    console.log(playerMove)
+    determineWinner(playerMove, botMove)
   })
 
   $("#scissors").click((event) => {
     console.log('selecting scissors')
+    playerMove = 'scissors'
+    botMove = generateBotMove()
+    console.log(botMove)
+    determineWinner(playerMove, botMove)
   })
 
-  // function whoWins(playerA, playerB) {
-  //
-  //   if (playerA === 'rock') {
-  //     if (playerB === 'scissors') {
-  //       console.log("Player A wins")
-  //   } else if (playerB === "paper") {
-  //       console.log("Player B wins")
-  //   } else {
-  //       console.log("It's a tie")
-  //   }
-  //
-  // }
-  //
-  //   if (playerA === 'paper') {
-  //     if (playerB === 'rock') {
-  //       console.log("Player A wins")
-  //   } else if (playerB === "scissors") {
-  //       console.log("Player B wins")
-  //   } else {
-  //       console.log("It's a tie")
-  //   }
-  // }
-  //
-  //   if (playerA === 'scissors') {
-  //     if (playerB === 'paper') {
-  //       console.log("Player A wins")
-  //   } else if (playerB === 'rock') {
-  //       console.log("Player B wins")
-  //   } else {
-  //       console.log("It's a tie")
-  //   }
-  // }
-  //
-  // }
+  function determineWinner(player, bot) {
 
+    if (player === 'rock') {
+      if (bot === 'scissors') {
+        console.log("Player wins")
+        playerScore += 1
+    } else if (bot === "paper") {
+        console.log("Bot wins")
+        botScore += 1
+    } else {
+        console.log("It's a tie")
+    }
+
+  }
+
+    if (player === 'paper') {
+      if (bot === 'rock') {
+        console.log("Player wins")
+        playerScore += 1
+    } else if (bot === "scissors") {
+        console.log("Bot wins")
+        botScore += 1
+    } else {
+        console.log("It's a tie")
+    }
+  }
+
+    if (player === 'scissors') {
+      if (bot === 'paper') {
+        console.log("Player wins")
+        playerScore += 1
+    } else if (bot === 'rock') {
+        console.log("Bot wins")
+        botScore += 1
+    } else {
+        console.log("It's a tie")
+    }
+  }
+
+    updateScore()
+
+  }
+
+  function updateScore(){
+    $('#humanScore').text(playerScore)
+    $('#computerScore').text(botScore)
+  }
 
 })
