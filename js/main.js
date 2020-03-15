@@ -80,7 +80,7 @@ $(function () {
         updateSummary("You win.")
         playerScore += 1
     } else if (bot === 'rock') {
-        cupdateSummary("You lose.")
+        updateSummary("You lose.")
         botScore += 1
     } else {
         updateSummary("You tied.")
