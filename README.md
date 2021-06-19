@@ -1,7 +1,7 @@
 # Homework #4: Rock, Paper, Scissors
 
 ## View in Netlify
-[!Rock, Paper. Scissors](https://quizzical-katie-3145f6.netlify.app/)
+[Rock, Paper, Scissors Game](https://quizzical-katie-3145f6.netlify.app/)
 
 ## Instructions
 To complete this assignment, do the following:
