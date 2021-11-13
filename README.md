@@ -72,4 +72,4 @@ In this homework assignment, you will be tasked with completing the functionalit
 
 * bonus requirements are not depicted in this gif
 
-![deliverable](https://github.com/jsr20190826/hw-04-rock-paper-scissors/blob/master/images/rps-demo.gif)
+![deliverable](./images/rps-demo.gif)
