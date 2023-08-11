@@ -52,6 +52,43 @@ button:active {
   padding: 0 20px;
 }
 
+.roundScoreboard {
+  width: 14em;
+  margin: auto;
+  border: 1px solid lime;
+}
+.roundScoreboard h2 {
+  border-bottom: 1px solid lime;
+  margin: 0;
+  padding: 10px;
+}
+.roundScoreboard table {
+  margin: 10px auto;
+  width: 100%;
+  border-collapse: collapse;
+}
+.roundScoreboard th, .roundScoreboard td {
+  text-align: center;
+}
+.roundScoreboard td {
+  font-size: 3em;
+  padding: 0 20px;
+}
+
 #status {
   margin-top: 20px;
+}
+
+.winContainer {
+  background: white;
+}
+
+
+
+.loseFace {
+
+}
+
+.loseContainer {
+  background: black;
 }

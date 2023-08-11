@@ -7,6 +7,8 @@
   </head>
 
   <body>
+    <div class="winContainer">
+    <div class="loseContainer">
     <div class="container">
       <h1>Rock, Paper, or Scissors?</h1>
 
@@ -32,6 +34,24 @@
         </table>
       </div>
 
+    <div class="roundScoreboard">
+      <h2>Round Score</h2>
+        <table>
+          <tbody>
+            <tr>
+              <td id="humanRoundScore">0</td>
+              <td id="botRoundScore">0</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>You</th>
+              <th>Bot</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
       <h2>Choose Wisely</h2>
 
       <button id="rock">Rock</button>
@@ -41,9 +61,15 @@
       <button id="scissors">Scissors</button>
 
       <div id="status"></div>
+      <!--<div id="loserFace"><img src="images/youLose.jpg"></div>
+      <div id="winnerFace"><img src="images/youWin.png"></div>-->
     </div>
+  </div>
+  </div>
 
-    <script src="js/jquery-2.1.4.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
